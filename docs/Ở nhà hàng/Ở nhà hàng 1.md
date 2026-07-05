@@ -1,5 +1,7 @@
 ![Ở nhà hàng 1](<Ở nhà hàng 1.png>)
 
+{{ nhung_podcast('bai_nghe_01.mp4') }}
+
 |STT|Từ|Phiên âm IPA|Từ loại|Nghĩa|Định nghĩa|Mẫu câu|
 |---|---|---|---|---|---|---|
 |1|a restaurant|/ˈrest(ə)rɒnt/ (UK) - /ˈrest(ə)rɑːnt/ (US)|n|nhà hàng|Một địa điểm kinh doanh nơi các bữa ăn được chuẩn bị và phục vụ cho khách hàng.|I want to eat dinner at a restaurant tonight.|
