@@ -23,9 +23,9 @@ def define_env(env):
         <span class="podcast-icon">🎧</span>
         <span class="podcast-title">Luyện Nghe Cùng Podcast</span>
     </div>
-    <video controls class="podcast-player" preload="metadata">
-        <source src="../{ten_file}" type="video/mp4">
-        Trình duyệt của bạn không hỗ trợ phát Podcast.
-    </video>
+    <audio controls class="podcast-player" preload="metadata">
+        <source src="../{ten_file}" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ phát âm thanh.
+    </audio>
 </div>
 """
