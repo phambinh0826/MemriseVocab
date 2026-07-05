@@ -11,8 +11,9 @@ def define_env(env):
         <p>Trình duyệt của bạn không hỗ trợ xem PDF trực tiếp.</p>
     </object>
 
-    <a href="../{ten_file}" target="_blank" class="md-button md-button--primary btn-mobile">
+    <!-- Nút bấm điện thoại đã được nâng cấp Javascript -->
+    <button onclick="openMobilePDF('{ten_file}')" class="md-button md-button--primary btn-mobile">
         📄 Chạm để Đọc PDF Toàn Màn Hình
-    </a>
+    </button>
 </div>
 """
