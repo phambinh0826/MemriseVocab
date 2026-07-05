@@ -16,3 +16,18 @@ def define_env(env):
     </button>
 </div>
 """
+
+@env.macro
+    def nhung_podcast(ten_file):
+        return f"""
+<div class="podcast-wrapper">
+    <div class="podcast-header">
+        <span class="podcast-icon">🎧</span>
+        <span class="podcast-title">Luyện Nghe Cùng Podcast</span>
+    </div>
+    <video controls class="podcast-player" preload="metadata">
+        <source src="../{ten_file}" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ phát Podcast.
+    </video>
+</div>
+"""
