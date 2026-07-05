@@ -175,3 +175,31 @@ h1, h2, h3 {
     max-width: 1100px !important;
     margin: 0 auto !important;
 }
+
+/* =========================================
+   8. Tối ưu trải nghiệm đọc PDF trên Mobile
+   ========================================= */
+
+/* Mặc định giấu cái nút dành cho điện thoại đi (Giúp máy tính không bị lòi nút) */
+.btn-mobile {
+    display: none;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.1em;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+/* KÍCH HOẠT CHẾ ĐỘ MOBILE (Chỉ áp dụng khi màn hình nhỏ hơn 768px) */
+@media screen and (max-width: 768px) {
+    /* Giấu khung PDF của máy tính đi */
+    .btn-desktop, .pdf-desktop { 
+        display: none !important; 
+    }
+    
+    /* Hiện nút bấm to đẹp của điện thoại lên */
+    .btn-mobile { 
+        display: block !important; 
+    }
+}
