@@ -33,15 +33,20 @@
 }
 
 /* =========================================
-   3. Typography (Định dạng chữ cơ bản)
+   3. Typography (Nét chữ sắc nét, đậm đà)
    ========================================= */
-body {
-    color: #2d3748;
-    line-height: 1.7;
+body, .md-typeset {
+    font-family: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
+    -webkit-font-smoothing: antialiased !important; /* Phép thuật làm chữ siêu nét */
+    -moz-osx-font-smoothing: grayscale !important;
+    color: #0f172a !important; /* Đổi từ xám mờ sang màu đen slate cực đậm */
+    line-height: 1.6;
 }
-h1, h2, h3 {
-    color: #1a202c;
-    font-weight: 600;
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em; /* Kéo chữ xích lại một chút cho hiện đại */
 }
 
 /* =========================================
@@ -202,4 +207,58 @@ h1, h2, h3 {
     .btn-mobile { 
         display: block !important; 
     }
+}
+
+/* =========================================
+   9. Giao diện Hiện đại (Windows 11 / Fluent Design)
+   ========================================= */
+
+/* 9.1 Lột xác Nút bấm (Buttons) */
+.md-button {
+    border-radius: 8px !important; /* Bo góc mềm mại */
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    transition: all 0.25s ease-in-out !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important; /* Đổ bóng nhẹ */
+}
+
+.md-button--primary {
+    background-color: #005FB8 !important; /* Chuẩn màu xanh dương Windows 11 */
+    color: #ffffff !important;
+    border: none !important;
+}
+
+.md-button--primary:hover {
+    background-color: #0052a3 !important; /* Hiệu ứng tối màu khi rê chuột */
+    box-shadow: 0 6px 15px rgba(0, 95, 184, 0.25) !important; /* Bóng tỏa màu xanh */
+    transform: translateY(-2px); /* Hiệu ứng nút bấm nảy lên nhẹ */
+}
+
+/* 9.2 Biến Khung xem PDF thành Cửa sổ Ứng dụng */
+.pdf-wrapper {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px; /* Bo góc to chuẩn Win 11 */
+    padding: 12px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08); /* Đổ bóng sâu tạo cảm giác nổi */
+    margin: 25px 0;
+    transition: box-shadow 0.3s ease;
+}
+
+.pdf-wrapper:hover {
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.12); /* Bóng tỏa rộng hơn khi rê chuột vào */
+}
+
+.pdf-desktop {
+    border-radius: 8px; /* Bo luôn góc của viền file PDF */
+    border: 1px solid #cbd5e1;
+    display: block;
+}
+
+/* 9.3 Tráng men Nút bấm trên Điện thoại */
+.btn-mobile {
+    border-radius: 12px !important; /* Bo góc cực to để dễ chạm bằng ngón tay */
+    padding: 16px 20px !important;
+    font-size: 1.1em !important;
+    box-shadow: 0 8px 20px rgba(0, 95, 184, 0.2) !important;
 }
