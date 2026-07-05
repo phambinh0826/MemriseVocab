@@ -27,7 +27,7 @@ jobs:
           python-version: 3.x
           
       - name: Cai dat MkDocs va Plugins
-        run: pip install mkdocs-material mkdocs-macros-plugin
+        run: pip install mkdocs-material mkdocs-macros-plugin mkdocs-glightbox
         
       - name: Xay dung va Xuat ban web
         run: mkdocs gh-deploy --force
