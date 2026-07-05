@@ -2,4 +2,4 @@
 
 Dưới đây là tài liệu tổng hợp toàn bộ từ vựng của chủ đề này.
 
-{{ nhung_pdf('Ở nhà hàng.pdf') }}
+{{ nhung_pdf('Tổng hợp đồ ăn.pdf') }}
