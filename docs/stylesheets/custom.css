@@ -304,3 +304,59 @@ body, .md-typeset {
         font-size: 0.85em !important;
     }
 }
+
+/* =========================================
+   13. Giao diện Máy phát Podcast (Windows 11)
+   ========================================= */
+.podcast-wrapper {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); /* Đổ bóng mịn */
+    margin: 25px 0;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* Khoảng cách giữa tiêu đề và video */
+}
+
+/* Hiệu ứng nổi bóng khi rê chuột vào khung Podcast */
+.podcast-wrapper:hover {
+    box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Thanh tiêu đề có chứa icon 🎧 */
+.podcast-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1.15em;
+}
+
+/* Vòng tròn xanh nhạt bao quanh icon */
+.podcast-icon {
+    background: #e6f2ff;
+    color: #005FB8;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    box-shadow: 0 2px 8px rgba(0, 95, 184, 0.15);
+}
+
+/* Tinh chỉnh bản thân trình phát Video/Audio */
+.podcast-player {
+    width: 100%;
+    border-radius: 8px; /* Bo tròn luôn góc của chính cái video */
+    outline: none;
+    background-color: #f1f5f9; /* Nền xám nhạt trong lúc chờ tải video */
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) inset;
+}
