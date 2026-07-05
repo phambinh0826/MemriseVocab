@@ -1,6 +1,6 @@
 ![Ở nhà hàng 1](<Ở nhà hàng 1.png>)
 
-{{ nhung_podcast('bai_nghe_01.mp4') }}
+{{ nhung_podcast('o_nha_hang_1.mp3') }}
 
 |STT|Từ|Phiên âm IPA|Từ loại|Nghĩa|Định nghĩa|Mẫu câu|
 |---|---|---|---|---|---|---|
