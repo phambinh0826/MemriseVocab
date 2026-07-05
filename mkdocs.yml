@@ -30,3 +30,12 @@ nav:
 
 extra_css:
   - stylesheets/custom.css
+  
+# Thêm khối plugins này vào (nếu chưa có)
+plugins:
+  - search
+  - macros
+
+# Thêm file JS vào cùng chỗ với extra_css
+extra_javascript:
+  - javascripts/custom.js
