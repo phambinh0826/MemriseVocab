@@ -180,9 +180,9 @@ h1, h2, h3 {
    8. Tối ưu trải nghiệm đọc PDF trên Mobile
    ========================================= */
 
-/* Mặc định giấu cái nút dành cho điện thoại đi (Giúp máy tính không bị lòi nút) */
+/* ÉP BUỘC giấu nút điện thoại trên máy tính (Thêm !important để theme gốc không đè được) */
 .btn-mobile {
-    display: none;
+    display: none !important; 
     width: 100%;
     text-align: center;
     padding: 15px 0;
