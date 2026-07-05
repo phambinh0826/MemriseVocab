@@ -3,17 +3,31 @@ on:
   push:
     branches:
       - main
+
+# BỔ SUNG 1: Cấp quyền cho Robot được phép ghi dữ liệu xuất bản lên kho chứa
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Lay ma nguon
         uses: actions/checkout@v4
+        
+      # BỔ SUNG 2: Cấp chứng minh nhân dân (Danh tính Git) cho Robot
+      - name: Khai bao danh tinh cho Robot
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
       - name: Cai dat Python
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
+          
       - name: Cai dat MkDocs va Plugins
         run: pip install mkdocs-material mkdocs-macros-plugin
+        
       - name: Xay dung va Xuat ban web
         run: mkdocs gh-deploy --force
