@@ -1,0 +1,19 @@
+name: Tu dong xuat ban web MkDocs
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lay ma nguon
+        uses: actions/checkout@v4
+      - name: Cai dat Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - name: Cai dat MkDocs va Plugins
+        run: pip install mkdocs-material mkdocs-macros-plugin
+      - name: Xay dung va Xuat ban web
+        run: mkdocs gh-deploy --force
