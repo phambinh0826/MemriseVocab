@@ -35,6 +35,7 @@ extra_css:
 plugins:
   - search
   - macros
+  - glightbox
 
 # Thêm file JS vào cùng chỗ với extra_css
 extra_javascript:
