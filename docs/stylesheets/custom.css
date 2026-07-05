@@ -1,7 +1,11 @@
 /* =========================================
+   0. NHÚNG PHÔNG CHỮ CAO CẤP (Hỗ trợ tiếng Việt 100%)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap');
+
+/* =========================================
    1. Phong cách Tối giản (GitBook Style)
    ========================================= */
-/* Top bar: Nền trắng, chữ xám, xóa đổ bóng */
 .md-header {
     background-color: #ffffff !important;
     color: #333333 !important;
@@ -11,42 +15,70 @@
 .md-header__button, .md-header__topic, .md-header__title {
     color: #4a5568 !important;
 }
-
-/* Sidebar bên trái: Nền xám nhạt */
 .md-sidebar--primary {
-    background-color: #f8f9fa;
-    border-right: 1px solid #e2e8f0;
+    background-color: #ffffff; /* Đổi thành trắng cho đồng bộ Menu mới */
+    border-right: none !important; 
 }
 
 /* =========================================
    2. Tối ưu Không gian hiển thị (Responsive)
    ========================================= */
-/* Tràn grid ra 100% để thanh menu dính chặt mép trái (Khung đỏ) */
-.md-grid {
-    max-width: 100% !important;
-}
-
-/* Giới hạn độ rộng của khung nội dung (Khung xanh lá) và căn giữa nó */
+.md-grid { max-width: 100% !important; }
 .md-content__inner {
-    max-width: 1100px; /* Độ rộng của vùng nội dung. Bạn có thể tăng giảm số này (VD: 1000px, 1200px) */
-    margin: 0 auto; /* Lệnh cốt lõi để căn giữa khung xanh lá */
+    max-width: 1100px;
+    margin: 0 auto; 
 }
 
 /* =========================================
-   3. Typography (Nét chữ sắc nét, đậm đà)
+   3. Typography (Nét chữ sắc nét, tối ưu Tiếng Việt)
    ========================================= */
 body, .md-typeset {
-    font-family: "Segoe UI Variable", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif !important;
-    -webkit-font-smoothing: antialiased !important; /* Phép thuật làm chữ siêu nét */
+    font-family: 'Lexend', sans-serif !important;
+    -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
-    color: #0f172a !important; /* Đổi từ xám mờ sang màu đen slate cực đậm */
-    line-height: 1.6;
+    color: #1e293b !important; 
+    line-height: 1.65 !important;
+    font-size: 16px;
 }
 
-.md-typeset h1, .md-typeset h2, .md-typeset h3 {
-    color: #000000 !important;
+.md-typeset h1 {
+    font-family: 'Inter', sans-serif !important;
+    color: #0f172a !important;
     font-weight: 700 !important;
-    letter-spacing: -0.01em; /* Kéo chữ xích lại một chút cho hiện đại */
+    font-size: 2rem !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: -0.025em;
+}
+
+.md-typeset h2 {
+    font-family: 'Inter', sans-serif !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    font-size: 1.4rem !important;
+    border-left: 4px solid #005FB8; 
+    padding-left: 12px;
+    margin-top: 2rem !important;
+}
+
+.md-typeset h3 {
+    font-family: 'Inter', sans-serif !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+.md-typeset p {
+    color: #334155 !important;
+    font-weight: 400;
+}
+
+/* Hộp ghi chú / Mẹo học tập tinh tế */
+.md-typeset blockquote {
+    color: #475569 !important;
+    border-left: 4px solid #0ea5e9 !important;
+    background-color: #f8fafc;
+    padding: 12px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 1.5em 0;
 }
 
 /* =========================================
@@ -54,63 +86,71 @@ body, .md-typeset {
    ========================================= */
 .md-typeset table:not([class]) {
     width: 100%; 
-    table-layout: fixed; /* CỐT LÕI: Ép bảng tuân thủ đúng 100% khung màn hình, vô hiệu hóa cuộn ngang */
-    border-collapse: collapse;
+    table-layout: fixed; 
+    border-collapse: separate; 
+    border-spacing: 0;
     margin: 2em 0;
-    font-size: 0.95em;
     background-color: #ffffff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
-    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px; 
     overflow: hidden; 
-    word-wrap: break-word; /* Ép chữ tự xuống dòng nếu quá dài */
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); 
+    word-wrap: break-word; 
 }
 .md-typeset table:not([class]) th {
-    background-color: #f1f5f9; 
-    color: #1e293b;
-    font-weight: 700;
+    background-color: #f8fafc !important; 
+    color: #0f172a !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.95em;
+    padding: 16px 18px;
+    border-bottom: 2px solid #e2e8f0; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
     text-align: left;
-    padding: 14px 16px;
-    border-bottom: 2px solid #cbd5e1; 
 }
 .md-typeset table:not([class]) td {
-    padding: 12px 16px;
-    border-bottom: 1px solid #e2e8f0;
-    border-right: 1px solid #f1f5f9; 
-    vertical-align: top; 
+    padding: 16px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    border-right: 1px solid #f8fafc; 
+    vertical-align: middle; 
+    font-size: 0.95em;
+    color: #334155;
 }
 .md-typeset table:not([class]) td:last-child,
 .md-typeset table:not([class]) th:last-child {
     border-right: none;
 }
+/* Làm nổi bật cột TỪ TIẾNG ANH (Cột số 2) */
+.md-typeset table:not([class]) td:nth-child(2) {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    color: #005FB8 !important; 
+    font-size: 1.05em;
+}
 .md-typeset table:not([class]) tbody tr:nth-child(even) {
-    background-color: #f8fafc;
+    background-color: #fdfdfd;
 }
 .md-typeset table:not([class]) tbody tr:hover {
-    background-color: #e2e8f0;
-    transition: background-color 0.2s ease;
+    background-color: #f0f7ff !important; 
+    transition: background-color 0.15s ease-in-out;
 }
 
 /* =========================================
    5. Tối ưu Layout Bảng (Phân bổ tỷ lệ cột)
    ========================================= */
-/* Cấp phát chính xác 100% không gian cho 7 cột, đảm bảo không rớt dòng vô lý */
-.md-typeset table:not([class]) th:nth-child(1), .md-typeset table:not([class]) td:nth-child(1) { width: 5%; text-align: center; } /* STT */
-.md-typeset table:not([class]) th:nth-child(2), .md-typeset table:not([class]) td:nth-child(2) { width: 12%; font-weight: bold; } /* Từ */
-.md-typeset table:not([class]) th:nth-child(3), .md-typeset table:not([class]) td:nth-child(3) { width: 15%; color: #475569; } /* Phiên âm */
-.md-typeset table:not([class]) th:nth-child(4), .md-typeset table:not([class]) td:nth-child(4) { width: 8%; text-align: center; font-style: italic; } /* Từ loại */
-.md-typeset table:not([class]) th:nth-child(5), .md-typeset table:not([class]) td:nth-child(5) { width: 15%; } /* Nghĩa */
-
-/* 2 Cột dài nhất chiếm 45% không gian còn lại */
-.md-typeset table:not([class]) th:nth-child(6), .md-typeset table:not([class]) td:nth-child(6) { width: 22.5%; line-height: 1.5; } /* Định nghĩa */
-.md-typeset table:not([class]) th:nth-child(7), .md-typeset table:not([class]) td:nth-child(7) { width: 22.5%; line-height: 1.5; } /* Mẫu câu */
+.md-typeset table:not([class]) th:nth-child(1), .md-typeset table:not([class]) td:nth-child(1) { width: 5%; text-align: center; } 
+.md-typeset table:not([class]) th:nth-child(2), .md-typeset table:not([class]) td:nth-child(2) { width: 12%; } 
+.md-typeset table:not([class]) th:nth-child(3), .md-typeset table:not([class]) td:nth-child(3) { width: 15%; color: #475569; } 
+.md-typeset table:not([class]) th:nth-child(4), .md-typeset table:not([class]) td:nth-child(4) { width: 8%; text-align: center; font-style: italic; } 
+.md-typeset table:not([class]) th:nth-child(5), .md-typeset table:not([class]) td:nth-child(5) { width: 15%; } 
+.md-typeset table:not([class]) th:nth-child(6), .md-typeset table:not([class]) td:nth-child(6) { width: 22.5%; line-height: 1.5; } 
+.md-typeset table:not([class]) th:nth-child(7), .md-typeset table:not([class]) td:nth-child(7) { width: 22.5%; line-height: 1.5; } 
 
 /* =========================================
    6. Tạo nút Mũi tên nổi 2 bên (Floating Navigation)
    ========================================= */
-
-/* CHỈ ÁP DỤNG TRÊN MÀN HÌNH MÁY TÍNH (Từ 1220px trở lên) */
 @media screen and (min-width: 1220px) {
-    
     .md-footer__link {
         position: fixed;
         top: 50%;
@@ -127,65 +167,33 @@ body, .md-typeset {
         transition: all 0.2s ease-in-out;
         opacity: 0.7;
     }
-
     .md-footer__link:hover {
         opacity: 1;
         transform: translateY(-50%) scale(1.1);
         box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
-
-    /* Vòng tròn xanh dương TRÁI: Dịch vào 280px để né thanh menu (chiều rộng menu là ~240px) */
-    .md-footer__link--prev {
-        left: 280px; 
-    }
-
-    /* Vòng tròn xanh dương PHẢI: Dính sát mép phải màn hình */
-    .md-footer__link--next {
-        right: 40px; 
-    }
-
-    /* Ẩn chữ, chỉ giữ lại icon */
-    .md-footer__title, .md-footer__direction {
-        display: none !important;
-    }
-
+    .md-footer__link--prev { left: 280px; }
+    .md-footer__link--next { right: 40px; }
+    .md-footer__title, .md-footer__direction { display: none !important; }
     .md-footer__link .md-icon {
         margin: 0 !important;
         width: 34px;
         height: 34px;
         color: #475569;
     }
-    
-    .md-footer__inner {
-        border-top: none !important;
-    }
+    .md-footer__inner { border-top: none !important; }
 }
 
 /* =========================================
    7. Căn giữa tuyệt đối Khối nội dung
    ========================================= */
-/* Tiêu diệt cột Mục lục (Table of Contents) tàng hình bên phải */
-.md-sidebar--secondary {
-    display: none !important;
-}
-
-/* Đảm bảo phần không gian chứa bài học được giải phóng tối đa */
-.md-content {
-    width: 100% !important;
-    margin: 0 auto !important;
-}
-
-/* Ép khung nội dung chia đều khoảng trống 2 bên để nằm chính giữa */
-.md-content__inner {
-    max-width: 1100px !important;
-    margin: 0 auto !important;
-}
+.md-sidebar--secondary { display: none !important; }
+.md-content { width: 100% !important; margin: 0 auto !important; }
+.md-content__inner { max-width: 1100px !important; margin: 0 auto !important; }
 
 /* =========================================
    8. Tối ưu trải nghiệm đọc PDF trên Mobile
    ========================================= */
-
-/* ÉP BUỘC giấu nút điện thoại trên máy tính (Thêm !important để theme gốc không đè được) */
 .btn-mobile {
     display: none !important; 
     width: 100%;
@@ -195,70 +203,104 @@ body, .md-typeset {
     margin: 20px 0;
     cursor: pointer;
 }
-
-/* KÍCH HOẠT CHẾ ĐỘ MOBILE (Chỉ áp dụng khi màn hình nhỏ hơn 768px) */
 @media screen and (max-width: 768px) {
-    /* Giấu khung PDF của máy tính đi */
-    .btn-desktop, .pdf-desktop { 
-        display: none !important; 
-    }
-    
-    /* Hiện nút bấm to đẹp của điện thoại lên */
-    .btn-mobile { 
-        display: block !important; 
-    }
+    .btn-desktop, .pdf-desktop { display: none !important; }
+    .btn-mobile { display: block !important; }
 }
 
 /* =========================================
    9. Giao diện Hiện đại (Windows 11 / Fluent Design)
    ========================================= */
-
-/* 9.1 Lột xác Nút bấm (Buttons) */
 .md-button {
-    border-radius: 8px !important; /* Bo góc mềm mại */
+    border-radius: 8px !important; 
     font-weight: 600 !important;
     letter-spacing: 0.3px;
     transition: all 0.25s ease-in-out !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important; /* Đổ bóng nhẹ */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important; 
 }
-
 .md-button--primary {
-    background-color: #005FB8 !important; /* Chuẩn màu xanh dương Windows 11 */
+    background-color: #005FB8 !important; 
     color: #ffffff !important;
     border: none !important;
 }
-
 .md-button--primary:hover {
-    background-color: #0052a3 !important; /* Hiệu ứng tối màu khi rê chuột */
-    box-shadow: 0 6px 15px rgba(0, 95, 184, 0.25) !important; /* Bóng tỏa màu xanh */
-    transform: translateY(-2px); /* Hiệu ứng nút bấm nảy lên nhẹ */
+    background-color: #0052a3 !important; 
+    box-shadow: 0 6px 15px rgba(0, 95, 184, 0.25) !important; 
+    transform: translateY(-2px); 
 }
-
-/* 9.2 Biến Khung xem PDF thành Cửa sổ Ứng dụng */
 .pdf-wrapper {
     background: #ffffff;
     border: 1px solid #e5e7eb;
-    border-radius: 12px; /* Bo góc to chuẩn Win 11 */
+    border-radius: 12px; 
     padding: 12px;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08); /* Đổ bóng sâu tạo cảm giác nổi */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08); 
     margin: 25px 0;
     transition: box-shadow 0.3s ease;
 }
-
 .pdf-wrapper:hover {
-    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.12); /* Bóng tỏa rộng hơn khi rê chuột vào */
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.12); 
 }
-
 .pdf-desktop {
-    border-radius: 8px; /* Bo luôn góc của viền file PDF */
+    border-radius: 8px; 
     border: 1px solid #cbd5e1;
     display: block;
 }
-
-/* 9.3 Tráng men Nút bấm trên Điện thoại */
 .btn-mobile {
-    border-radius: 12px !important; /* Bo góc cực to để dễ chạm bằng ngón tay */
+    border-radius: 12px !important; 
     padding: 16px 20px !important;
     font-size: 1.1em !important;
     box-shadow: 0 8px 20px rgba(0, 95, 184, 0.2) !important;
+}
+
+/* =========================================
+   10. Lột xác Menu bên trái (Chuẩn Windows 11)
+   ========================================= */
+.md-nav__item .md-nav__link {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.92em;
+    font-weight: 500;
+    border-radius: 8px; 
+    margin: 2px 8px;
+    padding: 8px 12px;
+    transition: all 0.2s ease-in-out;
+    color: #475569;
+}
+.md-nav__item .md-nav__link:hover {
+    background-color: #f1f5f9;
+    color: #005FB8 !important;
+}
+.md-nav__item--active > .md-nav__link {
+    background-color: #e6f2ff !important;
+    color: #005FB8 !important;
+    font-weight: 700;
+}
+
+/* =========================================
+   11. Xử lý lỗi nút chuyển bài đè lên Bảng (Desktop)
+   ========================================= */
+@media screen and (min-width: 1220px) {
+    .md-content__inner {
+        padding-left: 65px !important;
+        padding-right: 65px !important;
+    }
+    .md-footer__link--prev { left: 260px !important; }
+    .md-footer__link--next { right: 20px !important; }
+}
+
+/* =========================================
+   12. Tối ưu hiển thị Bảng trên Điện thoại (Mobile)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .md-typeset table:not([class]) {
+        display: block !important;
+        overflow-x: auto !important;
+        table-layout: auto !important; 
+    }
+    .md-typeset table:not([class]) th:nth-child(6), .md-typeset table:not([class]) td:nth-child(6),
+    .md-typeset table:not([class]) th:nth-child(7), .md-typeset table:not([class]) td:nth-child(7) {
+        min-width: 250px !important; 
+    }
+    .md-typeset table:not([class]) {
+        font-size: 0.85em !important;
+    }
 }
