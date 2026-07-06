@@ -13,20 +13,25 @@ theme:
   
 nav:
   - Trang chủ: index.md
-  - Đồ ăn:
-    - Tổng hợp từ vựng: Đồ ăn/Tổng hợp đồ ăn.md
-    - Đồ ăn: Đồ ăn/Đồ ăn.md
-    - Nhiều đồ ăn hơn: Đồ ăn/Nhiều đồ ăn hơn.md
-  - Ở nhà hàng:
-    - Tổng hợp từ vựng: Ở nhà hàng/Ở nhà hàng.md
-    - Ở nhà hàng 1: Ở nhà hàng/Ở nhà hàng 1.md
-  - Các cửa hàng trong khu phố:
-    - Tổng hợp từ vựng: Các cửa hàng trong khu phố/Các cửa hàng trong khu phố.md
-    - Các cửa hàng trong khu phố 1 : Các cửa hàng trong khu phố/015. Các cửa hàng trong khu phố 1 (17 từ).md
-    - Các cửa hàng trong khu phố 2: Các cửa hàng trong khu phố/032. Các cửa hàng trong khu phố 2 (27 từ).md
-    - Các cửa hàng trong khu phố 3: Các cửa hàng trong khu phố/038. Các cửa hàng trong khu phố 3 (16 từ).md
-    - Các cửa hàng trong khu phố 4: Các cửa hàng trong khu phố/040. Các cửa hàng trong khu phố 4 (18 từ).md
-    - Các cửa hàng trong khu phố 5: Các cửa hàng trong khu phố/041. Các cửa hàng trong khu phố 5 (14 từ).md
+  - Từ vựng theo chủ đề:
+    - 🍔 Nhà hàng & Ăn uống:
+      - Từ vựng chủ đề Ăn uống: Nhà hàng & Ăn uống/Đồ ăn/Tổng hợp đồ ăn.md
+      - Đồ ăn: Nhà hàng & Ăn uống/Đồ ăn/Đồ ăn.md
+      - Nhiều đồ ăn hơn: Nhà hàng & Ăn uống/Đồ ăn/Nhiều đồ ăn hơn.md
+      - Từ vựng chủ đề Nhà hàng: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng.md
+      - Ở nhà hàng 1: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 1.md
+      - Ở nhà hàng 2: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 2.md
+      - Ở nhà hàng 3: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 3.md
+      - Ở nhà hàng 4: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 4.md
+      - Ở nhà hàng 5: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 5.md
+      - Ở nhà hàng 6: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 6.md
+    - 🛒 Mua sắm & Cửa hàng:
+      - Từ vựng chủ đề Cửa hàng: Các cửa hàng trong khu phố/Các cửa hàng trong khu phố.md
+      - Các cửa hàng trong khu phố 1 : Các cửa hàng trong khu phố/015. Các cửa hàng trong khu phố 1 (17 từ).md
+      - Các cửa hàng trong khu phố 2: Các cửa hàng trong khu phố/032. Các cửa hàng trong khu phố 2 (27 từ).md
+      - Các cửa hàng trong khu phố 3: Các cửa hàng trong khu phố/038. Các cửa hàng trong khu phố 3 (16 từ).md
+      - Các cửa hàng trong khu phố 4: Các cửa hàng trong khu phố/040. Các cửa hàng trong khu phố 4 (18 từ).md
+      - Các cửa hàng trong khu phố 5: Các cửa hàng trong khu phố/041. Các cửa hàng trong khu phố 5 (14 từ).md
 
 extra_css:
   - stylesheets/custom.css
