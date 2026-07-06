@@ -1,5 +1,7 @@
 ![Nhiều đồ ăn hơn](<Nhiều đồ ăn hơn.png>)
 
+{{ nhung_podcast('Nhiều đồ ăn hơn.mp3') }}
+
 |**STT**|**Từ**|**Phiên âm IPA**|**Từ loại**|**Nghĩa**|**Định nghĩa**|**Mẫu câu**|
 |---|---|---|---|---|---|---|
 |1|a sandwich|/ə ˈsænwɪdʒ/ (UK) - /ə ˈsænwɪtʃ/ (US)|n.|bánh sandwich; bánh mì kẹp|Hai lát bánh mì kẹp ở giữa là các loại nhân như thịt, phô mai hoặc rau.|I usually bring a sandwich for lunch.|

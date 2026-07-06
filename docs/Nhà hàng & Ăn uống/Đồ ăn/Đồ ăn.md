@@ -1,5 +1,7 @@
 ![Đồ ăn](<Đồ ăn.png>)
 
+{{ nhung_podcast('Đồ ăn.mp3') }}
+
 |**STT**|**Từ**|**Phiên âm IPA**|**Từ loại**|**Nghĩa**|**Định nghĩa**|**Mẫu câu**|
 |---|---|---|---|---|---|---|
 |1|food|/fuːd/ (UK & US)|n|đồ ăn|Bất kỳ chất dinh dưỡng nào mà con người hoặc động vật ăn hoặc uống để duy trì sự sống.|Healthy food is essential for your body.|

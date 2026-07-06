@@ -265,10 +265,12 @@ body, .md-typeset {
     transition: all 0.2s ease-in-out;
     color: #475569;
 }
+
 .md-nav__item .md-nav__link:hover {
     background-color: #f1f5f9;
     color: #005FB8 !important;
 }
+
 .md-nav__item--active > .md-nav__link {
     background-color: #e6f2ff !important;
     color: #005FB8 !important;
@@ -359,4 +361,39 @@ body, .md-typeset {
     background-color: #f1f5f9; /* Nền xám nhạt trong lúc chờ tải video */
     border: 1px solid #cbd5e1;
     box-shadow: 0 2px 5px rgba(0,0,0,0.02) inset;
+}
+
+/* =========================================
+   14. Sửa lỗi dính lề màn hình Điện thoại (Mobile Padding)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .md-content__inner {
+        /* Tạo khoảng thở 18px ở 2 bên mép màn hình, giúp chữ không bị bít bùng */
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+    
+    /* Thu nhỏ khoảng cách lề trên cùng để chừa diện tích cho bài học */
+    .md-content {
+        padding-top: 10px !important;
+    }
+}
+
+/* =========================================
+   16. Xóa vùng trống khổng lồ dưới thanh Header
+   ========================================= */
+/* Kéo giật toàn bộ thân trang web lên sát mép trên */
+.md-main__inner {
+    margin-top: 0 !important;
+    padding-top: 15px !important; /* Tui chừa lại 15px thở cho đỡ ngộp, bạn có thể sửa thành 0 nếu muốn dính sát rạt */
+}
+
+/* Ép luôn phần nội dung bên phải đẩy sát lên trên */
+.md-content {
+    padding-top: 0 !important;
+}
+
+/* Xóa nốt lớp đệm thừa trên đầu của riêng thanh menu */
+.md-sidebar {
+    padding-top: 0 !important;
 }
