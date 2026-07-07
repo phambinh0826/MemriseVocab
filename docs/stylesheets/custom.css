@@ -393,7 +393,8 @@ body, .md-typeset {
     width: 100% !important; 
     max-width: 320px !important; 
     padding: 10px 16px 10px 42px !important; 
-    margin-bottom: 0 !important; 
+    margin-bottom: 0 !important;
+    flex-grow: 3; 
     border: 1px solid #cbd5e1 !important;
     border-radius: 8px !important; 
     font-family: 'Inter', sans-serif !important;
@@ -410,10 +411,6 @@ body, .md-typeset {
     background-repeat: no-repeat !important;
     background-position: 12px center !important; 
     background-size: 18px 18px !important;
-}
-
-.table-filter-box + table {
-    margin-top: 8px !important;
 }
 
 .table-filter-box:focus {
@@ -474,4 +471,69 @@ mark.search-highlight {
     border-radius: 4px !important;
     font-weight: 700 !important;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   20. HIỆU ỨNG CLICK ĐỂ NGHE PHÁT ÂM (TEXT-TO-SPEECH)
+   ========================================= */
+.md-typeset table:not([class]) tbody tr td:nth-child(2),
+.md-typeset table:not([class]) tbody tr td:nth-child(7) {
+    cursor: pointer !important;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.md-typeset table:not([class]) tbody tr td:nth-child(2):hover,
+.md-typeset table:not([class]) tbody tr td:nth-child(7):hover {
+    background-color: #e0f2fe !important; /* Đổi màu nền nhẹ khi di chuột */
+}
+
+/* Thêm icon loa mờ khi hover */
+.md-typeset table:not([class]) tbody tr td:nth-child(2):hover::after,
+.md-typeset table:not([class]) tbody tr td:nth-child(7):hover::after {
+    content: " 🔊";
+    font-size: 1.1em;
+    opacity: 0.8;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* =========================================
+   21. THANH CÔNG CỤ BẢNG (BỘ LỌC & CHỌN GIỌNG)
+   ========================================= */
+.table-control-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.voice-select-box {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    background-color: #f8fafc !important;
+    color: #1e293b !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9em !important;
+    outline: none !important;
+    cursor: pointer !important;
+    flex-grow: 1;
+    max-width: max-content;
+    min-width: 220px;
+    transition: all 0.3s ease !important;
+}
+
+.voice-select-box:focus {
+    border-color: #005FB8 !important;
+    box-shadow: 0 0 0 3px rgba(0, 95, 184, 0.15) !important;
+}
+
+/* Triệt tiêu lề mặc định của cái bảng nằm ngay dưới thanh công cụ */
+.table-control-bar + table {
+    margin-top: 0 !important; 
 }

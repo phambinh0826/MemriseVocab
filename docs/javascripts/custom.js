@@ -23,16 +23,98 @@ function openMobilePDF(fileName) {
 document.addEventListener("DOMContentLoaded", function() {
 
     // ----------------------------------------------------
-    // TÍNH NĂNG 1: THANH LỌC BẢNG (LOCAL SEARCH)
+    // TÍNH NĂNG 1 & 4 (GỘP): THANH CÔNG CỤ BẢNG & BỘ ĐỌC VĂN BẢN (CÓ NHẤN NHÁ)
     // ----------------------------------------------------
+    var englishVoices = [];
+    var voiceSelects = []; // Mảng chứa các ô chọn giọng trên trang
+
+    // Thuật toán lấy và sắp xếp giọng đọc (Đẩy giọng xịn lên đầu)
+    function loadVoices() {
+        var voices = window.speechSynthesis.getVoices();
+        if (voices.length === 0) return;
+
+        englishVoices = voices.filter(v => v.lang.startsWith('en'));
+
+        // Chấm điểm ưu tiên các giọng AI/Neural
+        englishVoices.sort((a, b) => {
+            let scoreA = (a.name.includes('Google') || a.name.includes('Neural') || a.name.includes('Samantha') || a.name.includes('Siri')) ? 1 : 0;
+            let scoreB = (b.name.includes('Google') || b.name.includes('Neural') || b.name.includes('Samantha') || b.name.includes('Siri')) ? 1 : 0;
+            return scoreB - scoreA;
+        });
+
+        // Đổ dữ liệu vào tất cả các ô Chọn giọng
+        voiceSelects.forEach(select => {
+            let oldVal = select.value;
+            select.innerHTML = ''; 
+            
+            englishVoices.forEach((voice, index) => {
+                var option = document.createElement('option');
+                option.value = index;
+                let isPremium = (voice.name.includes('Google') || voice.name.includes('Neural') || voice.name.includes('Samantha'));
+                // Gắn icon lấp lánh cho các giọng đọc tốt
+                option.textContent = (isPremium ? '✨ ' : '') + voice.name;
+                select.appendChild(option);
+            });
+
+            // Tự động giữ lại lựa chọn cũ, hoặc lấy giọng top 1 mặc định
+            if (oldVal === "" && englishVoices.length > 0) {
+                select.value = 0; 
+            } else if (oldVal !== "") {
+                select.value = oldVal;
+            }
+        });
+    }
+
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    // Hàm đọc văn bản (Tinh chỉnh độ cao và tốc độ để tạo ngữ điệu)
+    function speakText(text, selectedVoiceIndex) {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            var utterance = new SpeechSynthesisUtterance(text);
+            
+            if (englishVoices.length > 0 && englishVoices[selectedVoiceIndex]) {
+                utterance.voice = englishVoices[selectedVoiceIndex];
+            }
+            
+            utterance.lang = 'en-US'; 
+            
+            // 🚀 BÍ QUYẾT TẠO NHẤN NHÁ:
+            utterance.rate = 0.9;  // Đọc chậm lại một nhịp để AI nhả chữ rõ hơn
+            utterance.pitch = 1.1; // Kéo thanh âm lên một chút giúp giọng thanh thoát, bớt đi sự buồn tẻ (đơ) của máy móc
+            utterance.volume = 1;
+
+            window.speechSynthesis.speak(utterance);
+        }
+    }
+
+    // Quét toàn bộ bảng để chèn UI và Sự kiện
     var tables = document.querySelectorAll(".md-typeset table:not([class])");
     tables.forEach(function(table) {
+        
+        // 1. Dựng Thanh Công Cụ (Control Bar)
+        var controlBar = document.createElement("div");
+        controlBar.className = "table-control-bar";
+
+        // Ô nhập chữ tìm kiếm
         var searchBox = document.createElement("input");
         searchBox.type = "text";
         searchBox.placeholder = "Lọc từ vựng trong bảng...";
         searchBox.className = "table-filter-box";
-        table.parentNode.insertBefore(searchBox, table);
+        
+        // Ô chọn giọng đọc
+        var voiceSelect = document.createElement("select");
+        voiceSelect.className = "voice-select-box";
+        voiceSelect.title = "Tùy chọn giọng đọc bạn yêu thích";
+        voiceSelects.push(voiceSelect); 
 
+        controlBar.appendChild(searchBox);
+        controlBar.appendChild(voiceSelect);
+        table.parentNode.insertBefore(controlBar, table);
+
+        // Sự kiện gõ phím để lọc bảng
         searchBox.addEventListener("keyup", function() {
             var filterText = searchBox.value.toLowerCase().trim();
             var rows = table.querySelectorAll("tbody tr");
@@ -41,7 +123,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 row.style.display = rowText.includes(filterText) ? "" : "none";
             });
         });
+
+        // 2. Kích hoạt Click to Play cho Cột 2 và Cột 7
+        var englishCells = table.querySelectorAll("tbody tr td:nth-child(2), tbody tr td:nth-child(7)");
+        englishCells.forEach(function(cell) {
+            cell.title = "Click để nghe phát âm 🔊";
+            cell.addEventListener("click", function(e) {
+                var textToRead = this.textContent.trim();
+                // Lấy đúng cái giọng mà người dùng đang chọn ở bảng hiện tại
+                var currentVoiceIndex = voiceSelect.value; 
+                
+                if(textToRead !== "") {
+                    speakText(textToRead, currentVoiceIndex);
+                }
+            });
+        });
     });
+
+    loadVoices(); // Lệnh mồi lần đầu
 
     // ----------------------------------------------------
     // TÍNH NĂNG 2: CHIẾM QUYỀN TÌM KIẾM TỔNG (GLOBAL SEARCH)
