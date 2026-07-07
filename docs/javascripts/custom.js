@@ -69,21 +69,29 @@ document.addEventListener("DOMContentLoaded", function() {
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
 
-    // Hàm đọc văn bản (Tinh chỉnh độ cao và tốc độ để tạo ngữ điệu)
+    // Hàm đọc văn bản (Đã vá lỗi xung đột hệ thống trên Android Chrome)
     function speakText(text, selectedVoiceIndex) {
         if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             var utterance = new SpeechSynthesisUtterance(text);
             
             if (englishVoices.length > 0 && englishVoices[selectedVoiceIndex]) {
-                utterance.voice = englishVoices[selectedVoiceIndex];
+                var chosenVoice = englishVoices[selectedVoiceIndex];
+                
+                // 1. Gắn giọng đọc vào bộ máy
+                utterance.voice = chosenVoice;
+                
+                // 2. 🚀 BẢN VÁ LỖI ANDROID: Phải đồng bộ mã ngôn ngữ với giọng đọc
+                // (Ví dụ: Chọn giọng Úc thì lang phải là 'en-AU', Anh là 'en-GB')
+                utterance.lang = chosenVoice.lang; 
+            } else {
+                // Nếu không có giọng nào được chọn, dự phòng bằng tiếng Mỹ
+                utterance.lang = 'en-US'; 
             }
-            
-            utterance.lang = 'en-US'; 
             
             // 🚀 BÍ QUYẾT TẠO NHẤN NHÁ:
             utterance.rate = 0.9;  // Đọc chậm lại một nhịp để AI nhả chữ rõ hơn
-            utterance.pitch = 1.1; // Kéo thanh âm lên một chút giúp giọng thanh thoát, bớt đi sự buồn tẻ (đơ) của máy móc
+            utterance.pitch = 1; 
             utterance.volume = 1;
 
             window.speechSynthesis.speak(utterance);
