@@ -18,7 +18,7 @@ function openMobilePDF(fileName) {
 }
 
 /* =======================================================
-   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC (RÚT PHÍCH CẮM OBSERVER)
+   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC & TỐI ƯU HÓA MOBILE
    ======================================================= */
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!searchInput || !resultList) return;
 
-    // 1. Tải từ điển
+    // Tải từ điển (Đã chuẩn hóa cho GitHub Pages)
     var searchIndex = [];
     var base = document.querySelector(".md-logo") ? document.querySelector(".md-logo").getAttribute("href") : "./";
     if (base === "") base = "./";
@@ -64,15 +64,12 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => { searchIndex = data.docs; })
         .catch(err => console.error("Lỗi tải kho từ vựng:", err));
 
-    // 2. Khóa nút Enter chống văng trang
     if (searchForm) searchForm.addEventListener("submit", e => e.preventDefault());
     searchInput.addEventListener("keydown", function(e) {
         if (e.key === "Enter") e.preventDefault();
     });
 
-    // 3. KHỞI TẠO NGƯỜI GÁC CỔNG
     var observer = new MutationObserver(function(mutations) {
-        // Bất cứ khi nào MkDocs (Web Worker) đổ kết quả mặc định vào, lập tức ghi đè lại
         if (searchInput.value.trim() !== "") {
             performExactSearch();
         }
@@ -80,15 +77,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function performExactSearch() {
         var query = searchInput.value.trim().toLowerCase();
-        
-        // 🛑 BƯỚC QUAN TRỌNG: Tạm ngắt kết nối để không tự theo dõi chính tác vụ của mình (Ngăn lặp vô hạn)
         observer.disconnect();
 
         if (query === "") {
             resultList.innerHTML = "";
             if (meta) meta.textContent = "Nhập từ khóa để tìm kiếm";
-            
-            // Bật lại theo dõi sau khi hoàn tất
             observer.observe(resultList, { childList: true, subtree: true });
             return;
         }
@@ -109,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // Vẽ giao diện
         resultList.innerHTML = "";
         if (meta) meta.textContent = matches.length + " kết quả khớp chính xác";
 
@@ -121,9 +113,15 @@ document.addEventListener("DOMContentLoaded", function() {
             a.className = "md-search-result__link";
             a.href = base + match.location + "?q=" + encodeURIComponent(query);
 
+            // XỬ LÝ SỰ KIỆN CLICK (Đã vá lỗi Mobile)
             a.addEventListener("click", function(e) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
+                
+                // 🚀 ĐÓNG GIAO DIỆN LỚP PHỦ SEARCH TRÊN MOBILE NGAY LẬP TỨC
+                var searchToggle = document.getElementById("__search");
+                if (searchToggle) searchToggle.checked = false;
+                
                 window.location.href = this.href;
             });
 
@@ -140,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function() {
             resultList.appendChild(li);
         });
 
-        // 🟢 VẼ XONG: Cắm lại kết nối để tiếp tục canh gác MkDocs
         observer.observe(resultList, { childList: true, subtree: true });
     }
 
@@ -149,58 +146,52 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ----------------------------------------------------
-    // TÍNH NĂNG 3: TRÍ NHỚ ĐIỀN TỰ ĐỘNG, LỌC BẢNG & HIGHLIGHT TỪ KHÓA
+    // TÍNH NĂNG 3: TRÍ NHỚ ĐIỀN TỰ ĐỘNG, HIGHLIGHT & TỰ ĐỘNG CUỘN
     // ----------------------------------------------------
     var urlParams = new URLSearchParams(window.location.search);
     var queryParam = urlParams.get('q'); 
 
     if (queryParam) {
         setTimeout(function() {
-            // 1. Phục hồi ô tìm kiếm tổng
             if (searchInput) {
                 searchInput.value = queryParam;
                 performExactSearch(); 
             }
 
-            // 2. Ép bảng co lại theo từ khóa
             var tableFilters = document.querySelectorAll(".table-filter-box");
             tableFilters.forEach(function(box) {
                 box.value = queryParam;
                 box.dispatchEvent(new Event('keyup'));
             });
 
-            // 3. Kích hoạt thuật toán bôi vàng trong nội dung
             highlightSearchTerm(queryParam);
+            
+            // 🚀 BẢO VỆ GIAO DIỆN MOBILE: Đảm bảo Overlay Search không bị tự mở lại khi load trang
+            var searchToggle = document.getElementById("__search");
+            if (searchToggle) searchToggle.checked = false;
+
         }, 150); 
     }
 
-    // 🔬 THUẬT TOÁN XỬ LÝ TEXT NODE AN TOÀN
     function highlightSearchTerm(keyword) {
         if (!keyword || keyword.trim() === "") return;
-        
-        // Chỉ giới hạn tìm kiếm trong vùng nội dung bài học (.md-typeset)
         var contentArea = document.querySelector(".md-typeset"); 
         if (!contentArea) return;
 
-        // Xử lý chuỗi để dùng trong Regex an toàn (Tránh lỗi do ký tự đặc biệt)
         var escapeRegExp = function(string) {
             return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
         }
-        // Tạo Regex tìm kiếm không phân biệt hoa/thường (flag 'gi')
         var regex = new RegExp("(" + escapeRegExp(keyword.trim()) + ")", "gi");
 
-        // Sử dụng TreeWalker để duyệt qua cây DOM
         var treeWalker = document.createTreeWalker(
             contentArea,
             NodeFilter.SHOW_TEXT,
             {
                 acceptNode: function(node) {
                     var parentName = node.parentNode.nodeName;
-                    // Bỏ qua các thẻ chứa mã lệnh hoặc đã được highlight trước đó
                     if (parentName === 'SCRIPT' || parentName === 'STYLE' || parentName === 'MARK' || parentName === 'NOSCRIPT') {
                         return NodeFilter.FILTER_REJECT;
                     }
-                    // Nếu văn bản có chứa từ khóa thì chấp nhận node này
                     if (regex.test(node.nodeValue)) {
                         return NodeFilter.FILTER_ACCEPT;
                     }
@@ -212,24 +203,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
         var nodesToHighlight = [];
         var currentNode;
-        // Gom các Node thỏa mãn vào mảng trước khi chỉnh sửa DOM
         while(currentNode = treeWalker.nextNode()) {
             nodesToHighlight.push(currentNode);
         }
 
-        // Tiến hành bọc thẻ <mark> cho các từ khóa tìm được
         nodesToHighlight.forEach(function(node) {
             var tempDiv = document.createElement('div');
-            // Thay thế chuỗi khớp bằng thẻ mark mang class css ta đã tạo
             tempDiv.innerHTML = node.nodeValue.replace(regex, '<mark class="search-highlight">$1</mark>');
-            
             var parent = node.parentNode;
-            // Chèn các node văn bản/HTML mới vào trước node cũ
             while (tempDiv.firstChild) {
                 parent.insertBefore(tempDiv.firstChild, node);
             }
-            // Xóa text node cũ đi
             parent.removeChild(node);
         });
+
+        // 🚀 TÍNH NĂNG MỚI: Tự động cuộn (Auto-scroll) tới vị trí từ khóa
+        setTimeout(function() {
+            var firstHighlight = document.querySelector("mark.search-highlight");
+            if (firstHighlight) {
+                // block: "center" giúp căn từ khóa nằm ngay giữa màn hình điện thoại, không bị sát mép trên/dưới
+                firstHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }, 150);
     }
 });
