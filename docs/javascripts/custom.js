@@ -55,13 +55,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 1. Tải từ điển
     var searchIndex = [];
-    var base = document.querySelector(".md-logo") ? document.querySelector(".md-logo").getAttribute("href") : "/";
-    if (base === "") base = ".";
+    var base = document.querySelector(".md-logo") ? document.querySelector(".md-logo").getAttribute("href") : "./";
+    if (base === "") base = "./";
     if (!base.endsWith("/")) base += "/";
     
-    fetch(new URL(base + "search/search_index.json", window.location.origin).href)
+    fetch(base + "search/search_index.json")
         .then(res => res.json())
-        .then(data => { searchIndex = data.docs; });
+        .then(data => { searchIndex = data.docs; })
+        .catch(err => console.error("Lỗi tải kho từ vựng:", err));
 
     // 2. Khóa nút Enter chống văng trang
     if (searchForm) searchForm.addEventListener("submit", e => e.preventDefault());
