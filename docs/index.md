@@ -1,6 +1,6 @@
 # 🌟 Chào mừng đến với Kho Từ Vựng Tiếng Anh!
 
-Hi Guys!, đây là không gian lưu trữ và hệ thống hóa tài liệu học từ vựng tiếng Anh được thiết kế theo phong cách tối giản, trực quan và dễ tra cứu.
+Hi Guys!, đây là không gian lưu trữ và hệ thống hóa tài liệu học từ vựng tiếng Anh **giao tiếp** được thiết kế theo phong cách tối giản, trực quan và dễ tra cứu.
 
 Dự án cá nhân này được xây dựng nhằm mục đích tối ưu hóa trải nghiệm tự học ngôn ngữ, giúp việc ghi nhớ từ vựng không còn là một quá trình học thuộc lòng khô khan mà trở thành một hành trình khám phá thú vị.
 

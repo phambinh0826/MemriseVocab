@@ -14,24 +14,31 @@ theme:
 nav:
   - Trang chủ: index.md
   - Từ vựng theo chủ đề:
-    - 🍔 Nhà hàng & Ăn uống:
-      - Từ vựng chủ đề Ăn uống: Nhà hàng & Ăn uống/Đồ ăn/Tổng hợp ăn uống.md
-      - Đồ ăn: Nhà hàng & Ăn uống/Đồ ăn/Đồ ăn.md
-      - Nhiều đồ ăn hơn: Nhà hàng & Ăn uống/Đồ ăn/Nhiều đồ ăn hơn.md
-      - Từ vựng chủ đề Nhà hàng: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng.md
-      - Ở nhà hàng 1: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 1.md
-      - Ở nhà hàng 2: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 2.md
-      - Ở nhà hàng 3: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 3.md
-      - Ở nhà hàng 4: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 4.md
-      - Ở nhà hàng 5: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 5.md
-      - Ở nhà hàng 6: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 6.md
+
+    - 🍔 Ăn uống & Nhà hàng:
+      - Chủ đề Ăn uống:
+        - Tổng hợp chủ đề Ăn uống: Nhà hàng & Ăn uống/Đồ ăn/Tổng hợp ăn uống.md
+        - Bài 1. Đồ ăn: Nhà hàng & Ăn uống/Đồ ăn/Đồ ăn.md
+        - Bai 2. Nhiều đồ ăn hơn: Nhà hàng & Ăn uống/Đồ ăn/Nhiều đồ ăn hơn.md
+      - Chủ đề Nhà hàng:
+        - Tổng hợp chủ đề Nhà hàng: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng.md
+        - Bài 1. Ở nhà hàng 1: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 1.md
+        - Bài 2. Ở nhà hàng 2: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 2.md
+        - Bài 3. Ở nhà hàng 3: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 3.md
+        - Bài 4. Ở nhà hàng 4: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 4.md
+        - Bài 5. Ở nhà hàng 5: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 5.md
+        - Bài 6. Ở nhà hàng 6: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 6.md
+
     - 🛒 Mua sắm & Cửa hàng:
-      - Từ vựng chủ đề Cửa hàng: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố.md
-      - Các cửa hàng trong khu phố 1 : Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/015. Các cửa hàng trong khu phố 1 (17 từ).md
-      - Các cửa hàng trong khu phố 2: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/032. Các cửa hàng trong khu phố 2 (27 từ).md
-      - Các cửa hàng trong khu phố 3: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 3.md
-      - Các cửa hàng trong khu phố 4: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 4.md
-      - Các cửa hàng trong khu phố 5: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 5.md
+      - Chủ đề Nhịp sống đô thị:
+        - Tổng hợp chủ đề Nhịp sống đô thị: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố.md
+        - Bài 1. Các cửa hàng trong khu phố 1 : Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/015. Các cửa hàng trong khu phố 1 (17 từ).md
+        - Bài 2. Các cửa hàng trong khu phố 2: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/032. Các cửa hàng trong khu phố 2 (27 từ).md
+        - Bài 3. Các cửa hàng trong khu phố 3: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 3.md
+        - Bài 4. Các cửa hàng trong khu phố 4: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 4.md
+        - Bài 5. Các cửa hàng trong khu phố 5: Mua sắm & Cửa hàng/Các cửa hàng trong khu phố/Các cửa hàng trong khu phố 5.md
+      - Chủ đề Mua sắm:
+        - Tổng hợp chủ đề Mua sắm: Mua sắm & Cửa hàng/Mua sắm/Mua sắm.md
 
 extra_css:
   - stylesheets/custom.css
