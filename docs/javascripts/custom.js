@@ -18,7 +18,7 @@ function openMobilePDF(fileName) {
 }
 
 /* =======================================================
-   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC & TỐI ƯU HÓA MOBILE
+   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC (BẢN VÁ LỖI XUNG ĐỘT UI)
    ======================================================= */
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (!searchInput || !resultList) return;
 
-    // Tải từ điển (Đã chuẩn hóa cho GitHub Pages)
     var searchIndex = [];
     var base = document.querySelector(".md-logo") ? document.querySelector(".md-logo").getAttribute("href") : "./";
     if (base === "") base = "./";
@@ -113,15 +112,10 @@ document.addEventListener("DOMContentLoaded", function() {
             a.className = "md-search-result__link";
             a.href = base + match.location + "?q=" + encodeURIComponent(query);
 
-            // XỬ LÝ SỰ KIỆN CLICK (Đã vá lỗi Mobile)
             a.addEventListener("click", function(e) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                
-                // 🚀 ĐÓNG GIAO DIỆN LỚP PHỦ SEARCH TRÊN MOBILE NGAY LẬP TỨC
-                var searchToggle = document.getElementById("__search");
-                if (searchToggle) searchToggle.checked = false;
-                
+                // 🚀 Đã xóa lệnh đóng khung search cưỡng bức gây lỗi
                 window.location.href = this.href;
             });
 
@@ -144,6 +138,13 @@ document.addEventListener("DOMContentLoaded", function() {
     searchInput.addEventListener("input", function() {
         performExactSearch();
     });
+    
+    // 🚀 TÍNH NĂNG MỚI: Nếu người dùng chủ động bấm vào thanh search, mới phục hồi hiển thị kết quả
+    searchInput.addEventListener("focus", function() {
+        if (this.value.trim() !== "") {
+            performExactSearch();
+        }
+    });
 
     // ----------------------------------------------------
     // TÍNH NĂNG 3: TRÍ NHỚ ĐIỀN TỰ ĐỘNG, HIGHLIGHT & TỰ ĐỘNG CUỘN
@@ -153,9 +154,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (queryParam) {
         setTimeout(function() {
+            // 🚀 BẢN VÁ QUAN TRỌNG: Chỉ âm thầm điền chữ, KHÔNG vẽ kết quả trên màn hình để tránh MkDocs khóa UI
             if (searchInput) {
                 searchInput.value = queryParam;
-                performExactSearch(); 
             }
 
             var tableFilters = document.querySelectorAll(".table-filter-box");
@@ -165,11 +166,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             highlightSearchTerm(queryParam);
-            
-            // 🚀 BẢO VỆ GIAO DIỆN MOBILE: Đảm bảo Overlay Search không bị tự mở lại khi load trang
-            var searchToggle = document.getElementById("__search");
-            if (searchToggle) searchToggle.checked = false;
-
         }, 150); 
     }
 
@@ -217,11 +213,10 @@ document.addEventListener("DOMContentLoaded", function() {
             parent.removeChild(node);
         });
 
-        // 🚀 TÍNH NĂNG MỚI: Tự động cuộn (Auto-scroll) tới vị trí từ khóa
+        // Với màn hình đã được "thả tự do", tính năng cuộn sẽ hoạt động hoàn hảo 100%
         setTimeout(function() {
             var firstHighlight = document.querySelector("mark.search-highlight");
             if (firstHighlight) {
-                // block: "center" giúp căn từ khóa nằm ngay giữa màn hình điện thoại, không bị sát mép trên/dưới
                 firstHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
             }
         }, 150);
