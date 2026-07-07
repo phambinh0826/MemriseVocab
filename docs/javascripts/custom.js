@@ -18,7 +18,7 @@ function openMobilePDF(fileName) {
 }
 
 /* =======================================================
-   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC (BẢN VÁ LỖI XUNG ĐỘT UI)
+   PHẦN 2: BỘ MÁY TÌM KIẾM CHÍNH XÁC (BẢN VÁ LỖI URL DEEP LINK)
    ======================================================= */
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -110,12 +110,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
             var a = document.createElement("a");
             a.className = "md-search-result__link";
-            a.href = base + match.location + "?q=" + encodeURIComponent(query);
+            
+            // 🚀 THAY ĐỔI CỐT LÕI: Dùng ?h= thay vì ?q= để MkDocs không nhận diện được
+            a.href = base + match.location + "?h=" + encodeURIComponent(query);
 
             a.addEventListener("click", function(e) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                // 🚀 Đã xóa lệnh đóng khung search cưỡng bức gây lỗi
                 window.location.href = this.href;
             });
 
@@ -139,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function() {
         performExactSearch();
     });
     
-    // 🚀 TÍNH NĂNG MỚI: Nếu người dùng chủ động bấm vào thanh search, mới phục hồi hiển thị kết quả
     searchInput.addEventListener("focus", function() {
         if (this.value.trim() !== "") {
             performExactSearch();
@@ -150,11 +150,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // TÍNH NĂNG 3: TRÍ NHỚ ĐIỀN TỰ ĐỘNG, HIGHLIGHT & TỰ ĐỘNG CUỘN
     // ----------------------------------------------------
     var urlParams = new URLSearchParams(window.location.search);
-    var queryParam = urlParams.get('q'); 
+    
+    // 🚀 THAY ĐỔI CỐT LÕI: Yêu cầu mã của chúng ta chỉ đọc biến ?h=
+    var queryParam = urlParams.get('h'); 
 
     if (queryParam) {
         setTimeout(function() {
-            // 🚀 BẢN VÁ QUAN TRỌNG: Chỉ âm thầm điền chữ, KHÔNG vẽ kết quả trên màn hình để tránh MkDocs khóa UI
             if (searchInput) {
                 searchInput.value = queryParam;
             }
@@ -213,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function() {
             parent.removeChild(node);
         });
 
-        // Với màn hình đã được "thả tự do", tính năng cuộn sẽ hoạt động hoàn hảo 100%
         setTimeout(function() {
             var firstHighlight = document.querySelector("mark.search-highlight");
             if (firstHighlight) {
