@@ -8,8 +8,10 @@ theme:
   font:
     text: Helvetica Neue, Helvetica, Arial, sans-serif
   features:
-      - navigation.instant
+    #  - navigation.instant
       - navigation.footer
+    #  - search.suggest     # Bật tính năng tự động gợi ý từ khóa khi đang gõ
+    #  - search.highlight   # Bôi vàng từ khóa trong bài học
   
 nav:
   - Trang chủ: index.md
@@ -19,7 +21,7 @@ nav:
       - Chủ đề Ăn uống:
         - Tổng hợp chủ đề Ăn uống: Nhà hàng & Ăn uống/Đồ ăn/Tổng hợp ăn uống.md
         - Bài 1. Đồ ăn: Nhà hàng & Ăn uống/Đồ ăn/Đồ ăn.md
-        - Bai 2. Nhiều đồ ăn hơn: Nhà hàng & Ăn uống/Đồ ăn/Nhiều đồ ăn hơn.md
+        - Bài 2. Nhiều đồ ăn hơn: Nhà hàng & Ăn uống/Đồ ăn/Nhiều đồ ăn hơn.md
       - Chủ đề Nhà hàng:
         - Tổng hợp chủ đề Nhà hàng: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng.md
         - Bài 1. Ở nhà hàng 1: Nhà hàng & Ăn uống/Ở nhà hàng/Ở nhà hàng 1.md
@@ -42,13 +44,12 @@ nav:
 
 extra_css:
   - stylesheets/custom.css
+
+extra_javascript:
+  - javascripts/custom.js
   
 # Thêm khối plugins này vào (nếu chưa có)
 plugins:
   - search
   - macros
   - glightbox
-
-# Thêm file JS vào cùng chỗ với extra_css
-extra_javascript:
-  - javascripts/custom.js
