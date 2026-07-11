@@ -74,14 +74,23 @@ nav:
   - DailyDictation:
     - 💬 Conversations:
       - Section 1:
-        - 001-002 At Home: DailyDictation/Conversations/Section 1/001-002-At home.md
-        - 003-My Favorite Photographs: DailyDictation/Conversations/Section 1/003-My Favorite Photographs.md
-        - 004-005-Location: DailyDictation/Conversations/Section 1/004-005-Location.md
-        - 006-007-Color: DailyDictation/Conversations/Section 1/006-007-Color.md
-        - 008-No questions: DailyDictation/Conversations/Section 1/008-No questions.md
-        - 009-Short Answer: DailyDictation/Conversations/Section 1/009-Short Answer.md
-        - 010-Telephone call: DailyDictation/Conversations/Section 1/010-Telephone call.md
-
+        - 001-002. At Home: DailyDictation/Conversations/Section 1/001-002-At home.md
+        - 003. My Favorite Photographs: DailyDictation/Conversations/Section 1/003-My Favorite Photographs.md
+        - 004-005. Location: DailyDictation/Conversations/Section 1/004-005-Location.md
+        - 006-007. Color: DailyDictation/Conversations/Section 1/006-007-Color.md
+        - 008. No questions: DailyDictation/Conversations/Section 1/008-No questions.md
+        - 009. Short Answer: DailyDictation/Conversations/Section 1/009-Short Answer.md
+        - 010. Telephone call: DailyDictation/Conversations/Section 1/010-Telephone call.md
+        - 011. What's A Grant: DailyDictation/Conversations/Section 1/011. What's A Grant.md
+        - 012. I'm Busy On Friday: DailyDictation/Conversations/Section 1/012. I'm Busy On Friday.md
+        - 013. Bless You: DailyDictation/Conversations/Section 1/013. Bless You.md
+        - 014. I Don't Feel Well: DailyDictation/Conversations/Section 1/014. I Don't Feel Well.md
+        - 015. Can You Help Me: DailyDictation/Conversations/Section 1/015. Can You Help Me.md
+        - 016. Taking a Cab: DailyDictation/Conversations/Section 1/016. Taking a Cab.md
+        - 017. I Hate to Get Up: DailyDictation/Conversations/Section 1/017. I Hate to Get Up.md
+        - 018. A Hot Day: DailyDictation/Conversations/Section 1/018. A Hot Day.md
+        - 019. Phone Out of Order 1: DailyDictation/Conversations/Section 1/019. Phone Out of Order 1.md
+        - 020. Phone Out of Order 2: DailyDictation/Conversations/Section 1/020. Phone Out of Order 2.md
 
 extra_css:
   - stylesheets/custom.css
