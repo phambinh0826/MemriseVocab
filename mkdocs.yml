@@ -15,8 +15,7 @@ theme:
   
 nav:
   - Trang chủ: index.md
-  - Từ vựng theo chủ đề:
-
+  - Memrise:
     - 🍔 Ăn uống & Nhà hàng:
       - Chủ đề Ăn uống:
         - Tổng hợp chủ đề Ăn uống: Nhà hàng & Ăn uống/Đồ ăn/Tổng hợp ăn uống.md
