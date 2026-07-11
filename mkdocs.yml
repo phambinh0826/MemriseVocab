@@ -63,6 +63,9 @@ nav:
       #  - Bài 2. Mô tả người ta:
       #  - Bài 3. Mối quan hệ giữa con người:
 
+  - DailyDictation:
+    - Conversations:
+      - 001 - 002 At Home: DailyDictation\Conversations\001 - 002. At home.md
 
 extra_css:
   - stylesheets/custom.css
