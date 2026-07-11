@@ -1,4 +1,4 @@
-site_name: Kho Từ Vựng Memrise
+site_name: Kho Từ Vựng Tiếng Anh
 
 theme:
   name: material
@@ -15,6 +15,10 @@ theme:
   
 nav:
   - Trang chủ: index.md
+
+  #============================
+  # MEMRISE: KHÓA HỌC ANH - MỸ
+  #============================
   - Memrise:
     - 🍔 Ăn uống & Nhà hàng:
       - Chủ đề Ăn uống:
@@ -63,9 +67,20 @@ nav:
       #  - Bài 2. Mô tả người ta:
       #  - Bài 3. Mối quan hệ giữa con người:
 
+
+  #=======================================
+  # DAILYDICTATION: LUYÊN NGHE TIẾNG ANH
+  #=======================================
   - DailyDictation:
-    - Conversations:
+    - 💬 Conversations:
       - 001-002 At Home: DailyDictation/Conversations/001-002-At home.md
+      - 003-My Favorite Photographs: DailyDictation/Conversations/003-My Favorite Photographs.md
+      - 004-005-Location: DailyDictation/Conversations/004-005-Location.md
+      - 006-007-Color: DailyDictation/Conversations/006-007-Color.md
+      - 008-No questions: DailyDictation/Conversations/008-No questions.md
+      - 009-Short Answer: DailyDictation/Conversations/009-Short Answer.md
+      - 010-Telephone call: DailyDictation/Conversations/010-Telephone call.md
+
 
 extra_css:
   - stylesheets/custom.css

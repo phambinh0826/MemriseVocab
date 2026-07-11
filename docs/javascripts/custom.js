@@ -23,6 +23,53 @@ function openMobilePDF(fileName) {
 document.addEventListener("DOMContentLoaded", function() {
 
     // ----------------------------------------------------
+    // THÊM LOGO NỀN TẢNG VÀO THANH MENU BÊN TRÁI (BẢN FIX KÍCH THƯỚC)
+    // ----------------------------------------------------
+    var navLinks = document.querySelectorAll(".md-nav__link");
+
+    navLinks.forEach(function(link) {
+        var clone = link.cloneNode(true);
+        var activeItem = clone.querySelector(".md-nav__icon");
+        if (activeItem) activeItem.remove();
+        
+        var linkText = clone.textContent.trim();
+
+        // Cấu hình ép giao diện flexbox để căn giữa hàng ngay lập tức
+        link.style.display = "flex";
+        link.style.alignItems = "center";
+
+        // 1. Xử lý logo cho mục "Memrise"
+        if (linkText === "Memrise" && !link.querySelector(".logo-memrise")) {
+            var imgMemrise = document.createElement("img");
+            imgMemrise.src = "https://www.memrise.com/hubfs/Memrise%20July%202020/Images/logo_yellow.svg";
+            imgMemrise.className = "nav-platform-logo logo-memrise";
+            
+            // ÉP CỨNG kích thước bằng mã JS (Chống bị phóng to khi chưa nhận CSS)
+            imgMemrise.style.height = "16px";
+            imgMemrise.style.width = "auto";
+            imgMemrise.style.marginRight = "8px";
+            imgMemrise.style.display = "inline-block";
+
+            link.insertBefore(imgMemrise, link.firstChild);
+        }
+        
+        // 2. Xử lý logo cho mục "DailyDictation"
+        if (linkText === "DailyDictation" && !link.querySelector(".logo-dictation")) {
+            var imgDictation = document.createElement("img");
+            imgDictation.src = "https://dailydictation.com/dailydictation.svg";
+            imgDictation.className = "nav-platform-logo logo-dictation";
+            
+            // ÉP CỨNG kích thước bằng mã JS
+            imgDictation.style.height = "16px";
+            imgDictation.style.width = "auto";
+            imgDictation.style.marginRight = "8px";
+            imgDictation.style.display = "inline-block";
+
+            link.insertBefore(imgDictation, link.firstChild);
+        }
+    });
+
+    // ----------------------------------------------------
     // TÍNH NĂNG 1 & 4 (GỘP): THANH CÔNG CỤ BẢNG & BỘ ĐỌC VĂN BẢN (CÓ NHẤN NHÁ)
     // ----------------------------------------------------
     var englishVoices = [];
