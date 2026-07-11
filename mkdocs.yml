@@ -65,7 +65,7 @@ nav:
 
   - DailyDictation:
     - Conversations:
-      - 001 - 002 At Home: DailyDictation\Conversations\001 - 002. At home.md
+      - 001 - 002 At Home: DailyDictation/Conversations\001 - 002. At home.md
 
 extra_css:
   - stylesheets/custom.css
