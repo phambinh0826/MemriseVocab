@@ -1,6 +1,6 @@
 **012. I'm Busy On Friday:** Vocab level: A2
  
-{{ nhung_podcast('012. I\'m Busy On Friday.mp3') }}
+{{ nhung_podcast('012. I'm Busy On Friday.mp3') }}
 <details><summary>Show full transcript</summary>
 Would you like to go to a pop concert?<br>
 Well, I'd like to... but when is it?<br>
