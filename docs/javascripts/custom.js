@@ -67,6 +67,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
             link.insertBefore(imgDictation, link.firstChild);
         }
+
+        // 3. Xử lý logo cho mục "Destination B1"
+        if (linkText === "Destination B1" && !link.querySelector(".logo-destinationb1")) {
+            
+            var imgDestination = document.createElement("img");
+            imgDestination.src = "https://online.flipbuilder.com/jivyr/xzdc/files/pageConfig/15.png?250625173828";
+            imgDestination.className = "nav-platform-logo logo-destinationb1";
+            
+            // ÉP CỨNG kích thước bằng mã JS
+            imgDestination.style.height = "16px";
+            imgDestination.style.width = "auto";
+            imgDestination.style.marginRight = "8px";
+            imgDestination.style.display = "inline-block";
+
+            link.insertBefore(imgDestination, link.firstChild);
+        }
     });
 
     // ----------------------------------------------------

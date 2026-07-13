@@ -8,10 +8,7 @@ theme:
   font:
     text: Helvetica Neue, Helvetica, Arial, sans-serif
   features:
-    #  - navigation.instant
-      - navigation.footer
-    #  - search.suggest     # Bật tính năng tự động gợi ý từ khóa khi đang gõ
-    #  - search.highlight   # Bôi vàng từ khóa trong bài học
+    - navigation.footer
   
 nav:
   - Trang chủ: index.md
@@ -95,6 +92,16 @@ nav:
         - 018. A Hot Day: DailyDictation/Conversations/Section 1/018. A Hot Day.md
         - 019. Phone Out of Order 1: DailyDictation/Conversations/Section 1/019. Phone Out of Order 1.md
         - 020. Phone Out of Order 2: DailyDictation/Conversations/Section 1/020. Phone Out of Order 2.md
+
+  #============================================
+  # DESTINATION B1: HỌC NGỮ PHÁP TRÌNH BỘ B1
+  #============================================
+  - Destination B1:
+    - Unit 01 - 03: DestinationB1/Unit0102.md
+    - Unit 04 - 06: DestinationB1/Unit0405.md
+    - Unit 07 - 09: DestinationB1/Unit0708.md
+
+
 
 extra_css:
   - stylesheets/custom.css
