@@ -83,6 +83,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
             link.insertBefore(imgDestination, link.firstChild);
         }
+
+        // 4. Xử lý logo cho mục "VstepB1B2"
+        if (linkText === "VstepB1B2" && !link.querySelector(".logo-VstepB1B2")) {
+            
+            var imgVstepB1B2 = document.createElement("img");
+            
+            // XÂY DỰNG ĐƯỜNG DẪN TỐI ƯU TUYỆT ĐỐI BẰNG DOM
+            // 1. Tìm thẻ script đang chạy file custom.js
+            var scriptTag = document.querySelector('script[src*="custom.js"]');
+            
+            if (scriptTag) {
+                // Lấy đường dẫn tuyệt đối (VD: http://.../javascripts/custom.js)
+                var absolutePath = scriptTag.src; 
+                // Thay thế tên file JS bằng tên file ảnh
+                imgVstepB1B2.src = absolutePath.replace("custom.js", "VstepB1B2.png");
+            } else {
+                // Fallback dự phòng
+                imgVstepB1B2.src = "/javascripts/VstepB1B2.png";
+            }
+            
+            imgVstepB1B2.className = "nav-platform-logo logo-VstepB1B2";
+            
+            // ÉP CỨNG kích thước bằng mã JS
+            imgVstepB1B2.style.height = "16px";
+            imgVstepB1B2.style.width = "auto";
+            imgVstepB1B2.style.marginRight = "8px";
+            imgVstepB1B2.style.display = "inline-block";
+
+            link.insertBefore(imgVstepB1B2, link.firstChild);
+        }
     });
 
     // ----------------------------------------------------

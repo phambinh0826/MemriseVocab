@@ -102,6 +102,12 @@ nav:
     - Unit 07 - 09: DestinationB1/Unit0708.md
     - Unit 10 - 12: DestinationB1/Unit1011.md
 
+  #============================================
+  # VSTEP: ÔN THI B1
+  #============================================
+  - VstepB1B2:
+    - 01. Giới thiệu tổng quan về đọc hiểu: VstepB1B2/01. Giới thiệu tổng quan về đọc hiểu.md
+    - 02. Dạng bài ý chính: VstepB1B2/02. Dạng bài ý chính.md
 
 
 extra_css:
