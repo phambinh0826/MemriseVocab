@@ -106,8 +106,11 @@ nav:
   # VSTEP: ÔN THI B1
   #============================================
   - VstepB1B2:
-    - 01. Giới thiệu tổng quan về đọc hiểu: VstepB1B2/01. Giới thiệu tổng quan về đọc hiểu.md
-    - 02. Dạng bài ý chính: VstepB1B2/02. Dạng bài ý chính.md
+    - 📖 Reading:
+      - 01. Giới thiệu tổng quan về đọc hiểu: VstepB1B2/01. Giới thiệu tổng quan về đọc hiểu.md
+      - 02. Dạng bài ý chính: VstepB1B2/02. Dạng bài ý chính.md
+      - 03. Dạng bài thông tin cụ thể: VstepB1B2/03. Dạng bài thông tin cụ thể.md
+      - 04. Dạng bài từ vựng: VstepB1B2/04. Dạng bài từ vựng.md
 
 
 extra_css:
